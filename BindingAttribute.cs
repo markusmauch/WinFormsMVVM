@@ -10,7 +10,7 @@ namespace DataBinding
   /// Abstract base class for all binding attributes.
   /// </summary>
   [AttributeUsage( AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = true )]
-  public abstract class TLcBindingAttribute : Attribute
+  public abstract class BindingAttribute : Attribute
   {
     protected class BindingClosure
     {
@@ -171,7 +171,7 @@ namespace DataBinding
   /// This type of binding is also useful if you want to initialize your target property with some value from a source property and the data context is not
   /// known in advance. This is essentially a simpler form of OneWay binding that provides better performance in cases where the source value does not change.
   /// </summary>
-  public class OneTimeBinding : TLcBindingAttribute
+  public class OneTimeBinding : BindingAttribute
   {
     public override Action Bind( object control, INotifyPropertyChanged model )
     {
@@ -192,7 +192,7 @@ namespace DataBinding
   /// Updates the binding target (target) property when the binding source (source) changes.
   /// This type of binding is appropriate if the control being bound is implicitly read-only.
   /// </summary>
-  public class OneWayBinding : TLcBindingAttribute
+  public class OneWayBinding : BindingAttribute
   {
     public override Action Bind( object control, INotifyPropertyChanged model )
     {
@@ -208,7 +208,7 @@ namespace DataBinding
   /// <summary>
   /// Updates the source property when the target property changes.
   /// </summary>
-  public class OneWayToSourceBinding : TLcBindingAttribute
+  public class OneWayToSourceBinding : BindingAttribute
   {
     public override Action Bind( object control, INotifyPropertyChanged model )
     {
@@ -229,7 +229,7 @@ namespace DataBinding
   /// Causes changes to either the source property or the target property to automatically update the other.
   /// This type of binding is appropriate for editable forms or other fully-interactive UI scenarios.
   /// </summary>
-  public class TwoWayBinding : TLcBindingAttribute
+  public class TwoWayBinding : BindingAttribute
   {
     public override Action Bind( object control, INotifyPropertyChanged model )
     {
@@ -255,7 +255,7 @@ namespace DataBinding
   /// <summary>
   /// Binds a <see cref="Command"/> to the event handlers that implement the command.
   /// </summary>
-  public class CommandBinding : TLcBindingAttribute
+  public class CommandBinding : BindingAttribute
   {
     public override Action Bind( object control, INotifyPropertyChanged model )
     {

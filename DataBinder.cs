@@ -34,7 +34,7 @@ namespace DataBinding
 
         foreach ( var memberInfo in bundedMembers )
         {
-          var bindingAttributes = memberInfo.GetCustomAttributes( false ).ToList().Select( item => item as TLcBindingAttribute );
+          var bindingAttributes = memberInfo.GetCustomAttributes( false ).ToList().Select( item => item as BindingAttribute );
 
           foreach ( var bindingAttribute in bindingAttributes )
           {
