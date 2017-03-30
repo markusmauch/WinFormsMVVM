@@ -30,6 +30,7 @@ In order to apply the bindings, create an instance of the ```DataBinder``` in th
 - TwoWayBinding
 - OneWayToSourceBinding
 - OneTimeBinding
+- CommandBinding
 
 *Available value converters*:
 - StringFormatConverter
